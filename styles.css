@@ -1,0 +1,629 @@
+/* ─────────────────────────────────────────────
+       TOKENS
+    ───────────────────────────────────────────── */
+:root {
+    --white: #ffffff;
+    --blue: #002E5F;
+    --red: #FA2929;
+    --gray-bg: #f2f2f2;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    user-select: none;
+}
+
+/* ═══════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════ */
+.site-navbar {
+    background: var(--white);
+    padding: 12px 40px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Logo + controls sit together on the LEFT, nothing on the right */
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* gap between logo and controls */
+}
+
+/* PNG logo */
+.logo-img {
+    height: 65px;
+    width: auto;
+    display: block;
+}
+
+/* Controls group: Donate + socials */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-left: 20px;
+}
+
+.btn-donate {
+    background: var(--red);
+    color: #fff !important;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0px;
+    padding: 10px 20px;
+    text-decoration: none;
+    line-height: 1;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.btn-donate:hover {
+    background: #d41f1f;
+}
+
+.nav-social {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--red);
+    color: var(--white);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.nav-social:hover {
+    background: #d41f1f;
+}
+
+/* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+.hero-section {
+    position: relative;
+    background-color: var(--blue);
+    background-image: url('images/Jack-Miller-Background.png');
+    background-size: cover;
+    background-position: center;
+    overflow: visible;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg,
+            rgba(0, 46, 95, 0.98) 0%,
+            rgba(0, 46, 95, 0.95) 40%,
+            rgba(0, 46, 95, 0.65) 65%,
+            rgba(0, 46, 95, 0.20) 100%);
+    z-index: 1;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    min-height: 480px;
+    padding-left: 48px;
+    padding-right: 0;
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.hero-left {
+    flex: 0 0 52%;
+    max-width: 52%;
+    padding: 56px 0 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.hero-headline {
+    font-family: 'Roboto Slab', serif;
+    font-size: clamp(2.4rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin: 0;
+    text-align: center;
+}
+
+/* ── Get Involved Card ── */
+.gi-card {
+    background: var(--white);
+    border-radius: 0px;
+    padding: 26px 30px 28px;
+    max-width: 440px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.22);
+}
+
+.gi-card-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.gi-input {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid #ccc;
+    border-radius: 0;
+    background: transparent;
+    padding: 5px 0 6px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    color: #333;
+    margin-bottom: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.gi-input::placeholder {
+    color: #aaa;
+}
+
+.gi-input:focus {
+    border-bottom-color: var(--blue);
+}
+
+.gi-checks {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 8px 10px;
+    margin-bottom: 22px;
+}
+
+.gi-check-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    font-size: 0.78rem;
+    color: #333;
+    cursor: pointer;
+    line-height: 1.35;
+}
+
+.gi-check-label input[type="checkbox"] {
+    accent-color: var(--blue);
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.btn-gi-submit {
+    background: var(--red);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0px;
+    padding: 10px 26px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-gi-submit:hover {
+    background: #d41f1f;
+}
+
+/* ── Person image ── */
+.hero-right {
+    flex: 0 0 48%;
+    max-width: 48%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.hero-person {
+    display: block;
+    transform: translateY(-48px);
+    margin-bottom: -48px;
+    height: 630px;
+    width: auto;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: drop-shadow(-10px 0 28px rgba(0, 0, 0, 0.4));
+    position: relative;
+    z-index: 3;
+}
+
+/* ═══════════════════════════════════════════
+       ISSUES STRIP  (white bg)
+    ═══════════════════════════════════════════ */
+.issues-section {
+    background: var(--white);
+    padding: 48px 64px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.issues-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 40px;
+}
+
+.issue-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.issue-icon {
+    color: var(--red);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.issue-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--blue);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ═══════════════════════════════════════════
+       MEET JACK  (light gray bg)
+    ═══════════════════════════════════════════ */
+.meet-section {
+    background: var(--gray-bg);
+    padding: 56px 64px;
+}
+
+.meet-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.meet-img {
+    flex-shrink: 0;
+    width: 30%;
+    display: block;
+}
+
+.meet-content {
+    flex: 1;
+}
+
+.meet-heading {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+    line-height: 1;
+}
+
+.meet-content p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    color: var(--blue);
+    line-height: 1.65;
+    margin-bottom: 12px;
+}
+
+.meet-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ═══════════════════════════════════════════
+       PRIMARY BANNER  (red full-width)
+    ═══════════════════════════════════════════ */
+.primary-banner {
+    background: var(--red);
+    padding: 40px 40px;
+    text-align: center;
+}
+
+.primary-banner-text {
+    font-family: 'Roboto Slab', serif;
+    font-size: clamp(1rem, 2.8vw, 1.8rem);
+    font-weight: 500;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.primary-banner-text b {
+    font-weight: 900;
+}
+
+/* ═══════════════════════════════════════════
+       FOOTER  (white, centered)
+    ═══════════════════════════════════════════ */
+.site-footer {
+    background: var(--white);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.footer-logo {
+    height: 65px;
+    width: auto;
+    display: block;
+    margin-right: 20px;
+}
+
+.footer-donate {
+    background: var(--red);
+    color: #fff !important;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0px;
+    padding: 10px 20px;
+    text-decoration: none;
+    line-height: 1;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+footer .navbar-inner {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+
+.footer-donate:hover {
+    background: #d41f1f;
+}
+
+.footer-social {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--red);
+    color: var(--white);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-social:hover {
+    background: #d41f1f;
+}
+
+/* ═══════════════════════════════════════════
+       RESPONSIVE – TABLET  (≤991px)
+    ═══════════════════════════════════════════ */
+@media (max-width: 991px) {
+    .site-navbar {
+        padding: 12px 24px;
+    }
+
+    .hero-container {
+        padding-left: 24px;
+        min-height: 420px;
+    }
+
+    .hero-left {
+        flex: 0 0 56%;
+        max-width: 56%;
+    }
+
+    .hero-right {
+        flex: 0 0 44%;
+        max-width: 44%;
+    }
+
+    .hero-person {
+        height: 440px;
+        transform: translateY(-44px);
+    }
+
+    .issues-section {
+        padding: 40px 32px;
+    }
+
+    .issues-grid {
+        gap: 18px 28px;
+    }
+
+    .meet-section {
+        padding: 48px 32px;
+    }
+
+    .meet-inner {
+        gap: 28px;
+    }
+
+    .meet-img {
+        width: 40%;
+    }
+}
+
+/* ═══════════════════════════════════════════
+       RESPONSIVE – MOBILE  (≤767px)
+    ═══════════════════════════════════════════ */
+@media (max-width: 767px) {
+    .site-navbar {
+        padding: 12px 16px;
+    }
+
+    .navbar-inner {
+        gap: 14px;
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    .logo-img {
+        height: auto;
+        width: 70%;
+        margin: auto;
+    }
+
+    .nav-controls {
+        margin: 0;
+    }
+
+    /* Hero */
+    .hero-section {
+        /* overflow: hidden; */
+    }
+
+    .hero-overlay {
+        background: linear-gradient(180deg,
+                rgba(0, 46, 95, 0.40) 0%,
+                rgba(0, 46, 95, 0.95) 45%,
+                rgba(0, 46, 95, 0.98) 100%);
+    }
+
+    .gi-card-title {
+        font-size: 1.95rem;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        min-height: unset;
+    }
+
+    .hero-right {
+        order: -1;
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-person {
+        /* transform: translateY(0); */
+        height: 100%;
+        width: 100%;
+        /* object-fit: cover;
+                object-position: top center;
+                filter: none; */
+        margin-bottom: -20px;
+        transform: translateY(-20px);
+
+    }
+
+    .hero-left {
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+        padding: 24px 20px 40px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .gi-card {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .gi-checks {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-gi-submit {
+        width: 100%;
+    }
+
+    /* Issues */
+    .issues-section {
+        padding: 32px 20px;
+    }
+
+    .issues-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Meet Jack */
+    .meet-section {
+        padding: 36px 20px;
+    }
+
+    .meet-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .meet-img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .meet-heading {
+        font-size: 2.3rem;
+        text-align: center;
+    }
+
+    .meet-content {
+        text-align: center;
+    }
+
+    /* Primary banner */
+    .primary-banner {
+        padding: 40px 24px;
+    }
+
+    .primary-banner-text {
+        font-size: 1.9rem;
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 22px 20px;
+        gap: 14px;
+    }
+
+    .footer-logo {
+        height: 42px;
+    }
+}
